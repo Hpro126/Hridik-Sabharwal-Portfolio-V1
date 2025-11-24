@@ -28,14 +28,14 @@ const Navbar: React.FC<NavbarProps> = ({ currentPage, onNavigate }) => {
   return (
     <nav className="fixed w-full z-50 glass-nav transition-all duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-20">
+        <div className="flex items-center justify-between h-16 lg:h-20">
           <div className="flex-shrink-0 cursor-pointer group" onClick={() => handleNav('home')}>
-            <h1 className="text-2xl font-bold font-display tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-purple-500 group-hover:from-purple-500 group-hover:to-cyan-400 transition-all duration-500">
+            <h1 className="text-xl lg:text-2xl font-bold font-display tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-purple-500 group-hover:from-purple-500 group-hover:to-cyan-400 transition-all duration-500">
               Hridik Sabharwal
             </h1>
           </div>
           
-          <div className="hidden md:block">
+          <div className="hidden lg:block">
             <div className="ml-10 flex items-baseline space-x-4">
               {navLinks.map((link) => (
                 <button
@@ -53,7 +53,7 @@ const Navbar: React.FC<NavbarProps> = ({ currentPage, onNavigate }) => {
             </div>
           </div>
 
-          <div className="-mr-2 flex md:hidden">
+          <div className="-mr-2 flex lg:hidden">
             <button
               onClick={() => setIsOpen(!isOpen)}
               className="inline-flex items-center justify-center p-2 rounded-md text-slate-400 hover:text-white hover:bg-slate-800 focus:outline-none"
@@ -66,7 +66,7 @@ const Navbar: React.FC<NavbarProps> = ({ currentPage, onNavigate }) => {
 
       {/* Mobile menu */}
       {isOpen && (
-        <div className="md:hidden glass-nav border-t border-slate-700">
+        <div className="lg:hidden glass-nav border-t border-slate-700 max-h-[calc(100vh-4rem)] overflow-y-auto">
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
             {navLinks.map((link) => (
               <button

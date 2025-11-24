@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect, useRef } from 'react';
-import { ArrowRight, Code, Cpu, Film, Search, Send, MapPin, Layers, BookOpen, Calendar, Target, ChevronLeft, Play, Pause, Scissors } from 'lucide-react';
+import { ArrowRight, Code, Cpu, Film, Search, Send, MapPin, Layers, BookOpen, Calendar, Target, ChevronLeft, Play, Pause, Scissors, Loader2, CheckCircle, AlertCircle } from 'lucide-react';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import ToggleButton from './components/ToggleButton';
@@ -754,6 +754,8 @@ const ContactPage = () => {
     subject: '',
     message: ''
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({
@@ -762,12 +764,45 @@ const ContactPage = () => {
     });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    const { name, email, subject, message } = formData;
-    const body = `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`;
-    const mailtoLink = `mailto:hridik.sabharwal@outlook.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-    window.location.href = mailtoLink;
+    setIsSubmitting(true);
+    setSubmitStatus('idle');
+
+    // NOTE to user: The first time you use this form, FormSubmit will send an activation email 
+    // to hridik.sabharwal@outlook.com. You MUST click the activation link in that email 
+    // for this form to work permanently.
+    try {
+      const response = await fetch("https://formsubmit.co/ajax/hridik.sabharwal@outlook.com", {
+        method: "POST",
+        headers: { 
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+            name: formData.name,
+            email: formData.email,
+            subject: formData.subject,
+            message: formData.message,
+            _template: 'table', // Makes the email look nicer
+            _captcha: 'false' // Disables the captcha redirection
+        })
+      });
+      
+      const result = await response.json();
+
+      if (result.success === "true" || response.ok) {
+        setSubmitStatus('success');
+        setFormData({ name: '', email: '', subject: '', message: '' });
+      } else {
+        setSubmitStatus('error');
+      }
+    } catch (error) {
+      console.error(error);
+      setSubmitStatus('error');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -781,64 +816,105 @@ const ContactPage = () => {
         </div>
 
         <div className="glass-card p-8 md:p-10 rounded-3xl">
-          <form className="space-y-6" onSubmit={handleSubmit}>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {submitStatus === 'success' ? (
+            <div className="text-center py-12">
+              <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-green-500/20 text-green-500 mb-6">
+                <CheckCircle className="w-10 h-10" />
+              </div>
+              <h3 className="text-2xl font-bold text-white mb-4">Message Sent!</h3>
+              <p className="text-slate-400 max-w-md mx-auto mb-8">
+                Thanks for reaching out! I've received your message and will get back to you shortly.
+              </p>
+              <button 
+                onClick={() => setSubmitStatus('idle')}
+                className="px-8 py-3 rounded-full bg-slate-800 text-white font-bold hover:bg-slate-700 transition-colors"
+              >
+                Send Another Message
+              </button>
+            </div>
+          ) : (
+            <form className="space-y-6" onSubmit={handleSubmit}>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                  <label className="block text-sm font-medium text-slate-300 mb-2">Name</label>
+                  <input 
+                    type="text" 
+                    name="name"
+                    value={formData.name}
+                    onChange={handleChange}
+                    required
+                    disabled={isSubmitting}
+                    className="w-full bg-slate-900/50 border border-slate-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-cyan-500 transition-colors disabled:opacity-50" 
+                    placeholder="John Doe" 
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-slate-300 mb-2">Email</label>
+                  <input 
+                    type="email" 
+                    name="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    required
+                    disabled={isSubmitting}
+                    className="w-full bg-slate-900/50 border border-slate-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-cyan-500 transition-colors disabled:opacity-50" 
+                    placeholder="john@example.com" 
+                  />
+                </div>
+              </div>
+              
               <div>
-                <label className="block text-sm font-medium text-slate-300 mb-2">Name</label>
+                <label className="block text-sm font-medium text-slate-300 mb-2">Subject</label>
                 <input 
                   type="text" 
-                  name="name"
-                  value={formData.name}
+                  name="subject"
+                  value={formData.subject}
                   onChange={handleChange}
                   required
-                  className="w-full bg-slate-900/50 border border-slate-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-cyan-500 transition-colors" 
-                  placeholder="John Doe" 
+                  disabled={isSubmitting}
+                  className="w-full bg-slate-900/50 border border-slate-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-cyan-500 transition-colors disabled:opacity-50" 
+                  placeholder="Project Inquiry" 
                 />
               </div>
+
               <div>
-                <label className="block text-sm font-medium text-slate-300 mb-2">Email</label>
-                <input 
-                  type="email" 
-                  name="email"
-                  value={formData.email}
+                <label className="block text-sm font-medium text-slate-300 mb-2">Message</label>
+                <textarea 
+                  rows={6} 
+                  name="message"
+                  value={formData.message}
                   onChange={handleChange}
                   required
-                  className="w-full bg-slate-900/50 border border-slate-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-cyan-500 transition-colors" 
-                  placeholder="john@example.com" 
-                />
+                  disabled={isSubmitting}
+                  className="w-full bg-slate-900/50 border border-slate-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-cyan-500 transition-colors disabled:opacity-50" 
+                  placeholder="Your message here...">
+                </textarea>
               </div>
-            </div>
-            
-            <div>
-              <label className="block text-sm font-medium text-slate-300 mb-2">Subject</label>
-              <input 
-                type="text" 
-                name="subject"
-                value={formData.subject}
-                onChange={handleChange}
-                required
-                className="w-full bg-slate-900/50 border border-slate-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-cyan-500 transition-colors" 
-                placeholder="Project Inquiry" 
-              />
-            </div>
 
-            <div>
-              <label className="block text-sm font-medium text-slate-300 mb-2">Message</label>
-              <textarea 
-                rows={6} 
-                name="message"
-                value={formData.message}
-                onChange={handleChange}
-                required
-                className="w-full bg-slate-900/50 border border-slate-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-cyan-500 transition-colors" 
-                placeholder="Your message here...">
-              </textarea>
-            </div>
+              {submitStatus === 'error' && (
+                <div className="flex items-center text-red-400 bg-red-900/20 p-4 rounded-lg">
+                  <AlertCircle className="w-5 h-5 mr-2" />
+                  <span>Something went wrong. Please try again later.</span>
+                </div>
+              )}
 
-            <button type="submit" className="w-full bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-500 hover:to-blue-500 text-white font-bold py-4 rounded-lg transition-all transform hover:-translate-y-1 flex items-center justify-center">
-              <Send className="w-5 h-5 mr-2" /> Send Message
-            </button>
-          </form>
+              <button 
+                type="submit" 
+                disabled={isSubmitting}
+                className="w-full bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-500 hover:to-blue-500 text-white font-bold py-4 rounded-lg transition-all transform hover:-translate-y-1 flex items-center justify-center disabled:opacity-70 disabled:cursor-not-allowed disabled:hover:translate-y-0"
+              >
+                {isSubmitting ? (
+                  <>
+                    <Loader2 className="w-5 h-5 mr-2 animate-spin" /> Sending...
+                  </>
+                ) : (
+                  <>
+                    <Send className="w-5 h-5 mr-2" /> Send Message
+                  </>
+                )}
+              </button>
+            </form>
+          )}
 
           <div className="mt-10 pt-10 border-t border-slate-700 flex flex-col items-center">
             <p className="text-slate-400 mb-4">Or email me directly at</p>

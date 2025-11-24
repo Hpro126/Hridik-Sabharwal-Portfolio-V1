@@ -347,7 +347,7 @@ const HeroSection = ({ onNavigate }: { onNavigate: (page: PageView) => void }) =
 );
 
 const AboutSection = ({ isFullPage = false, onNavigate }: { isFullPage?: boolean; onNavigate: (page: PageView) => void }) => (
-  <section className={`py-20 bg-slate-900 ${isFullPage ? 'pt-32 min-h-screen' : ''}`}>
+  <section className={`py-20 bg-slate-900 relative overflow-hidden ${isFullPage ? 'pt-32 min-h-screen' : ''}`}>
     <div className={`${isFullPage ? 'max-w-7xl' : 'max-w-5xl'} mx-auto px-4 sm:px-6 lg:px-8`}>
       <div className="relative">
           {/* Decorative background element for visual interest since image is gone */}
@@ -505,15 +505,15 @@ const AboutSection = ({ isFullPage = false, onNavigate }: { isFullPage?: boolean
 const ProjectsSection = ({ isFullPage = false, projects, filter, setFilter, onSelect, onNavigate }: { isFullPage?: boolean; projects: Project[]; filter: ToggleOption; setFilter: (o: ToggleOption) => void; onSelect: (p: Project) => void; onNavigate: (page: PageView) => void }) => (
   <section className={`py-20 relative ${isFullPage ? 'pt-32 min-h-screen' : ''}`}>
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
-        <div>
-          <div className="inline-flex items-center space-x-2 text-cyan-400 font-bold mb-2">
+      <div className="flex flex-col md:flex-row justify-between items-center md:items-end mb-12 gap-6 text-center md:text-left">
+        <div className="w-full md:w-auto">
+          <div className="inline-flex items-center justify-center md:justify-start space-x-2 text-cyan-400 font-bold mb-2">
             <Layers className="w-5 h-5" />
             <span>PORTFOLIO</span>
           </div>
           <h2 className="text-4xl md:text-5xl font-bold font-display text-white">Projects</h2>
         </div>
-        <div className="flex items-center space-x-4">
+        <div className="w-full md:w-auto flex justify-center md:justify-end">
           <ToggleButton active={filter} onChange={setFilter} />
         </div>
       </div>
@@ -567,15 +567,17 @@ const ProjectsSection = ({ isFullPage = false, projects, filter, setFilter, onSe
 const AnimationsSection = ({ isFullPage = false, animations, filter, setFilter, onSelect, onNavigate }: { isFullPage?: boolean; animations: Animation[]; filter: ToggleOption; setFilter: (o: ToggleOption) => void; onSelect: (a: Animation) => void; onNavigate: (page: PageView) => void }) => (
   <section className={`py-20 bg-slate-900 ${isFullPage ? 'pt-32 min-h-screen' : ''}`}>
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
-        <div>
-          <div className="inline-flex items-center space-x-2 text-purple-400 font-bold mb-2">
+      <div className="flex flex-col md:flex-row justify-between items-center md:items-end mb-12 gap-6 text-center md:text-left">
+        <div className="w-full md:w-auto">
+          <div className="inline-flex items-center justify-center md:justify-start space-x-2 text-purple-400 font-bold mb-2">
             <Film className="w-5 h-5" />
             <span>CREATIVE</span>
           </div>
           <h2 className="text-4xl md:text-5xl font-bold font-display text-white">Animations</h2>
         </div>
-        <ToggleButton active={filter} onChange={setFilter} />
+        <div className="w-full md:w-auto flex justify-center md:justify-end">
+          <ToggleButton active={filter} onChange={setFilter} />
+        </div>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -621,15 +623,17 @@ const AnimationsSection = ({ isFullPage = false, animations, filter, setFilter, 
 const EditsSection = ({ isFullPage = false, edits, filter, setFilter, onSelect, onNavigate }: { isFullPage?: boolean; edits: Edit[]; filter: ToggleOption; setFilter: (o: ToggleOption) => void; onSelect: (e: Edit) => void; onNavigate: (page: PageView) => void }) => (
   <section className={`py-20 bg-slate-950 ${isFullPage ? 'pt-32 min-h-screen' : ''}`}>
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
-        <div>
-          <div className="inline-flex items-center space-x-2 text-pink-400 font-bold mb-2">
+      <div className="flex flex-col md:flex-row justify-between items-center md:items-end mb-12 gap-6 text-center md:text-left">
+        <div className="w-full md:w-auto">
+          <div className="inline-flex items-center justify-center md:justify-start space-x-2 text-pink-400 font-bold mb-2">
             <Scissors className="w-5 h-5" />
             <span>EDITS</span>
           </div>
           <h2 className="text-4xl md:text-5xl font-bold font-display text-white">Edits</h2>
         </div>
-        <ToggleButton active={filter} onChange={setFilter} />
+        <div className="w-full md:w-auto flex justify-center md:justify-end">
+          <ToggleButton active={filter} onChange={setFilter} />
+        </div>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -675,12 +679,12 @@ const EditsSection = ({ isFullPage = false, edits, filter, setFilter, onSelect, 
 const BlogSection = ({ isFullPage = false, blogs, filter, setFilter, search, setSearch, onSelect, onNavigate }: { isFullPage?: boolean; blogs: BlogPost[]; filter: ToggleOption; setFilter: (o: ToggleOption) => void; search: string; setSearch: (s: string) => void; onSelect: (b: BlogPost) => void; onNavigate: (page: PageView) => void }) => (
   <section className={`py-20 relative ${isFullPage ? 'pt-32 min-h-screen' : ''}`}>
      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
-        <div>
+      <div className="flex flex-col md:flex-row justify-between items-center md:items-end mb-12 gap-6 text-center md:text-left">
+        <div className="w-full md:w-auto">
           <h2 className="text-4xl md:text-5xl font-bold font-display text-white">Blog</h2>
           <p className="text-slate-400 mt-2">Thoughts, tutorials, and insights.</p>
         </div>
-        <div className="flex flex-col sm:flex-row gap-4 items-center">
+        <div className="w-full md:w-auto flex flex-col sm:flex-row gap-4 items-center justify-center md:justify-end">
           <div className="relative">
              <input 
                type="text" 

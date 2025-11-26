@@ -1,0 +1,25 @@
+{
+  "about": {
+    "name": "Hridik Sabharwal",
+    "role": "Student",
+    "intro": "Hi everyone! I'm Hridik Sabharwal, a 13-year-old student at Springdales School, Dhaula Kuan, New Delhi, India. I have a strong interest in computer programming and I'm a full-stack developer with experience in HTML, CSS, JavaScript, React, Python, and C. I also enjoy robotics and build new projects using Arduino, ESP32, and Raspberry Pi, while exploring the worlds of IoT, AI, and more.",
+    "secondary": "Besides tech, I'm a budding animator and have a growing passion for entrepreneurship and startups. I hope to create my own startup one day and continue innovating along the way."
+  },
+  "fullAbout": {
+    "story": "My journey started with a curiosity about how things work. From taking apart toys to writing my first 'Hello World', I've always been driven by the desire to create. Being 13 allows me to look at technology with fresh eyes, unburdened by 'how things have always been done'. I believe in learning by doing—whether it's debugging a C program for my robot or tweaking keyframes in a Blender animation.",
+    "education": {
+      "school": "Springdales School, Dhaula Kuan",
+      "location": "New Delhi, India",
+      "details": "Currently balancing academics with my passion for technology and innovation."
+    },
+    "journey": [
+      { "year": "2017", "title": "Hello World", "desc": "Started my journey with basic office tools like Word, PowerPoint, and Excel." },
+      { "year": "2018", "title": "Editing & Design", "desc": "Started designing graphics and editing content using Canva." },
+      { "year": "2021", "title": "Web Development", "desc": "Deep dived into HTML, CSS, and JS to build interactive websites." },
+      { "year": "2022", "title": "Robotics", "desc": "Built my first Arduino obstacle avoiding robot." },
+      { "year": "2023", "title": "IoT & Automation", "desc": "Started building smart devices with ESP32 and React." },
+      { "year": "2024", "title": "Drone Aerodynamics", "desc": "Explored the mechanics of flight and drone technology." },
+      { "year": "2025", "title": "Animations & Skills", "desc": "Leveling up my animation capabilities and refining technical skills." }
+    ]
+  }
+}

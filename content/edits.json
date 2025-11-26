@@ -1,0 +1,34 @@
+{
+  "edits": [
+    {
+      "id": "1",
+      "title": "Cinematic Travel Montage",
+      "description": "A fast-paced travel edit synced to music with custom transitions.",
+      "imageUrl": "/assets/images/edits/travel-thumb.jpg",
+      "videoUrl": "/assets/videos/edits/travel-montage.mp4",
+      "featured": true,
+      "date": "2023-12-10",
+      "software": ["Premiere Pro", "After Effects"]
+    },
+    {
+      "id": "2",
+      "title": "Gaming Highlights",
+      "description": "High energy gaming compilation with visual effects and color grading.",
+      "imageUrl": "/assets/images/edits/gaming-thumb.jpg",
+      "videoUrl": "/assets/videos/edits/gaming-highlights.mp4",
+      "featured": true,
+      "date": "2023-11-05",
+      "software": ["Davinci Resolve"]
+    },
+    {
+      "id": "3",
+      "title": "Vlog Edit - Day in Life",
+      "description": "A storytelling focused edit with calm pacing and aesthetic shots.",
+      "imageUrl": "/assets/images/edits/vlog-thumb.jpg",
+      "videoUrl": "/assets/videos/edits/day-in-life.mp4",
+      "featured": false,
+      "date": "2023-09-20",
+      "software": ["Premiere Pro"]
+    }
+  ]
+}

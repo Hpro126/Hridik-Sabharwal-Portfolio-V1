@@ -1,0 +1,34 @@
+{
+  "animations": [
+    {
+      "id": "1",
+      "title": "Cyberpunk City Walk",
+      "description": "A 3D loop animation created in Blender featuring a neon-lit street.",
+      "imageUrl": "/assets/images/animations/cyberpunk-thumb.jpg",
+      "videoUrl": "/assets/videos/animations/cyberpunk-city.mp4",
+      "featured": true,
+      "date": "2023-11-20",
+      "software": ["Blender", "DaVinci Resolve"]
+    },
+    {
+      "id": "2",
+      "title": "Character Rig Test",
+      "description": "Testing fluid movements for a new character design.",
+      "imageUrl": "/assets/images/animations/char-rig-thumb.jpg",
+      "videoUrl": "/assets/videos/animations/character-rig.mp4",
+      "featured": true,
+      "date": "2023-10-15",
+      "software": ["Maya", "After Effects"]
+    },
+    {
+      "id": "3",
+      "title": "Bouncing Ball Study",
+      "description": "Classic animation exercise focusing on squash and stretch principles.",
+      "imageUrl": "/assets/images/animations/ball-study-thumb.jpg",
+      "videoUrl": "/assets/videos/animations/bouncing-ball.mp4",
+      "featured": false,
+      "date": "2023-08-10",
+      "software": ["Blender"]
+    }
+  ]
+}

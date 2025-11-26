@@ -1,0 +1,146 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "public/assets/images"
+public_folder: "/assets/images"
+
+collections:
+  - name: "pages"
+    label: "Pages"
+    files:
+      - file: "content/hero.json"
+        label: "Hero Section"
+        name: "hero"
+        fields:
+          - {label: "Greeting", name: "greeting", widget: "string"}
+          - {label: "Tagline", name: "tagline", widget: "text"}
+      
+      - file: "content/about.json"
+        label: "About Me"
+        name: "about_data"
+        fields:
+          - label: "Summary"
+            name: "about"
+            widget: "object"
+            fields:
+              - {label: "Name", name: "name", widget: "string"}
+              - {label: "Role", name: "role", widget: "string"}
+              - {label: "Intro", name: "intro", widget: "text"}
+              - {label: "Secondary", name: "secondary", widget: "text"}
+          - label: "Full Profile"
+            name: "fullAbout"
+            widget: "object"
+            fields:
+              - {label: "My Story", name: "story", widget: "text"}
+              - label: "Education"
+                name: "education"
+                widget: "object"
+                fields:
+                  - {label: "School", name: "school", widget: "string"}
+                  - {label: "Location", name: "location", widget: "string"}
+                  - {label: "Details", name: "details", widget: "text"}
+              - label: "Journey Timeline"
+                name: "journey"
+                widget: "list"
+                fields:
+                  - {label: "Year", name: "year", widget: "string"}
+                  - {label: "Title", name: "title", widget: "string"}
+                  - {label: "Description", name: "desc", widget: "string"}
+
+      - file: "content/footer.json"
+        label: "Footer"
+        name: "footer"
+        fields:
+          - {label: "Footer Text", name: "text", widget: "text"}
+
+  - name: "projects"
+    label: "Projects"
+    files:
+      - file: "content/projects.json"
+        label: "Projects List"
+        name: "projects"
+        fields:
+          - label: "Projects"
+            name: "projects"
+            widget: "list"
+            fields:
+              - {label: "ID", name: "id", widget: "string"}
+              - {label: "Title", name: "title", widget: "string"}
+              - {label: "Description", name: "description", widget: "text"}
+              - {label: "Tags", name: "tags", widget: "list"}
+              - {label: "Image", name: "imageUrl", widget: "image"}
+              - {label: "Category", name: "category", widget: "select", options: ["tech", "robotics", "iot", "ai"]}
+              - {label: "Featured", name: "featured", widget: "boolean", default: true}
+              - {label: "Date", name: "date", widget: "datetime", format: "YYYY-MM-DD", date_format: "YYYY-MM-DD", time_format: false}
+              - {label: "Full Description", name: "fullDescription", widget: "markdown"}
+              - {label: "Full Description Image", name: "fullDescriptionImage", widget: "image", required: false}
+              - {label: "Journey", name: "journey", widget: "markdown"}
+              - {label: "Journey Image", name: "journeyImage", widget: "image", required: false}
+              - {label: "Challenges", name: "challenges", widget: "markdown"}
+              - {label: "Challenges Image", name: "challengesImage", widget: "image", required: false}
+              - {label: "Tech Stack", name: "techStackDetails", widget: "list"}
+              - {label: "Github Link", name: "githubLink", widget: "string", required: false}
+              - {label: "Demo Link", name: "demoLink", widget: "string", required: false}
+
+  - name: "animations"
+    label: "Animations"
+    files:
+      - file: "content/animations.json"
+        label: "Animations List"
+        name: "animations"
+        fields:
+          - label: "Animations"
+            name: "animations"
+            widget: "list"
+            fields:
+              - {label: "ID", name: "id", widget: "string"}
+              - {label: "Title", name: "title", widget: "string"}
+              - {label: "Description", name: "description", widget: "text"}
+              - {label: "Video URL", name: "videoUrl", widget: "string"}
+              - {label: "Thumbnail Image", name: "imageUrl", widget: "image"}
+              - {label: "Featured", name: "featured", widget: "boolean", default: true}
+              - {label: "Date", name: "date", widget: "datetime", format: "YYYY-MM-DD", date_format: "YYYY-MM-DD", time_format: false}
+              - {label: "Software Used", name: "software", widget: "list"}
+
+  - name: "edits"
+    label: "Edits"
+    files:
+      - file: "content/edits.json"
+        label: "Edits List"
+        name: "edits"
+        fields:
+          - label: "Edits"
+            name: "edits"
+            widget: "list"
+            fields:
+              - {label: "ID", name: "id", widget: "string"}
+              - {label: "Title", name: "title", widget: "string"}
+              - {label: "Description", name: "description", widget: "text"}
+              - {label: "Video URL", name: "videoUrl", widget: "string"}
+              - {label: "Thumbnail Image", name: "imageUrl", widget: "image"}
+              - {label: "Featured", name: "featured", widget: "boolean", default: true}
+              - {label: "Date", name: "date", widget: "datetime", format: "YYYY-MM-DD", date_format: "YYYY-MM-DD", time_format: false}
+              - {label: "Software Used", name: "software", widget: "list"}
+
+  - name: "blog"
+    label: "Blog"
+    files:
+      - file: "content/blogs.json"
+        label: "Blog Posts"
+        name: "blogs"
+        fields:
+          - label: "Posts"
+            name: "blogs"
+            widget: "list"
+            fields:
+              - {label: "ID", name: "id", widget: "string"}
+              - {label: "Title", name: "title", widget: "string"}
+              - {label: "Excerpt", name: "excerpt", widget: "text"}
+              - {label: "Date", name: "date", widget: "datetime", format: "MMM DD, YYYY", date_format: "MMM DD, YYYY", time_format: false}
+              - {label: "Read Time", name: "readTime", widget: "string"}
+              - {label: "Cover Image", name: "imageUrl", widget: "image"}
+              - {label: "Featured", name: "featured", widget: "boolean", default: true}
+              - {label: "Tags", name: "tags", widget: "list"}
+              - {label: "Author", name: "author", widget: "string"}
+              - {label: "Content Paragraphs", name: "content", widget: "list"}

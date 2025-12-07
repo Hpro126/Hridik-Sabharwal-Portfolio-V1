@@ -1,4 +1,3 @@
-
 import { Project, Animation, BlogPost, Edit } from './types';
 import heroData from './content/hero.json';
 import aboutData from './content/about.json';

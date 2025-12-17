@@ -1,58 +1,83 @@
 {
   "blogs": [
     {
-      "id": "1",
-      "title": "My Journey into Robotics",
       "excerpt": "How I started with a simple LED blink and moved to complex autonomous rovers.",
-      "date": "Oct 12, 2023",
       "readTime": "5 min read",
-      "imageUrl": "/assets/images/blog/robotics-journey.jpg",
-      "featured": true,
-      "tags": ["Robotics", "Learning"],
       "author": "Hridik Sabharwal",
+      "featured": true,
+      "date": "Oct 12, 2023",
+      "imageUrl": "/assets/images/blog/robotics-journey.jpg",
+      "title": "My Journey into Robotics",
+      "tags": [
+        "Robotics",
+        "Learning"
+      ],
       "content": [
         "It all started with a kit my parents bought me for my 10th birthday. It was a simple electronics kit with wires, batteries, and LEDs. I remember the first time I completed a circuit and the red light turned on—it felt like magic.",
         "But I quickly wanted more. I wanted the light to blink on its own. I wanted motors to spin based on sensors. That's when I discovered Arduino.",
         "The transition from simple electronics to programmable microcontrollers was steep. I had to learn C++. I had to understand variables, loops, and logic. My first few codes were copy-pasted, but slowly I began to understand the syntax.",
         "My first major build was the Obstacle Avoiding Robot. It was frustrating. Wires kept coming loose, the code had bugs, and the batteries would die. But the moment it autonomously turned away from a wall for the first time, all the frustration vanished.",
         "Robotics has taught me patience. It has taught me that failure is just a data point. Every time something doesn't work, I learn one way how NOT to do it. And that is the essence of engineering."
-      ]
+      ],
+      "id": "1"
     },
     {
-      "id": "2",
-      "title": "Why React for 2024?",
       "excerpt": "Analyzing why React remains the king of frontend development libraries.",
-      "date": "Nov 03, 2023",
       "readTime": "4 min read",
-      "imageUrl": "/assets/images/blog/react-cover.jpg",
-      "featured": true,
-      "tags": ["Tech", "Web Dev"],
       "author": "Hridik Sabharwal",
+      "featured": true,
+      "date": "Nov 03, 2023",
+      "imageUrl": "/assets/images/blog/react-cover.jpg",
+      "title": "Why React for 2024?",
+      "tags": [
+        "Tech",
+        "Web Dev"
+      ],
       "content": [
         "In the ever-changing landscape of web development, frameworks come and go. Yet, React stands tall. Why?",
         "Component-Based Architecture: This is the game changer. Breaking down complex UIs into small, reusable pieces makes development faster and maintenance easier.",
         "The Ecosystem: The sheer number of libraries, tools, and tutorials available for React is staggering. If you have a problem, someone has likely already solved it and made a package for it.",
         "React Native: Learning React opens the door to mobile app development. The ability to use the same logic for web and mobile is a massive productivity booster.",
         "While newer contenders like Svelte and SolidJS are exciting, React's maturity and job market dominance make it the essential skill for 2024."
-      ]
+      ],
+      "id": "2"
     },
     {
-      "id": "3",
-      "title": "Getting Started with Blender",
       "excerpt": "Tips and tricks for beginners looking to dive into 3D animation.",
-      "date": "Sep 15, 2023",
       "readTime": "6 min read",
-      "imageUrl": "/assets/images/blog/blender-cover.jpg",
-      "featured": false,
-      "tags": ["Animation", "3D"],
       "author": "Hridik Sabharwal",
+      "featured": false,
+      "date": "Sep 15, 2023",
+      "imageUrl": "/assets/images/blog/blender-cover.jpg",
+      "title": "Getting Started with Blender",
+      "tags": [
+        "Animation",
+        "3D"
+      ],
       "content": [
         "Blender is intimidating. When you first open it, there are buttons everywhere. Don't panic.",
         "Start with the Donut Tutorial by Blender Guru. It's a rite of passage for every 3D artist. It covers modeling, texturing, lighting, and rendering in a way that is easy to follow.",
         "Learn the shortcuts. Blender relies heavily on keyboard shortcuts. G for Grab, R for Rotate, S for Scale. Memorize these, and your workflow will speed up by 10x.",
         "Don't aim for photorealism immediately. Start with low-poly styles. They are forgiving and help you understand form and composition without getting bogged down in complex texturing.",
         "Have fun! 3D art is about creating worlds. Don't be afraid to experiment."
-      ]
+      ],
+      "id": "3"
+    },
+    {
+      "excerpt": "trtrtrtrt",
+      "readTime": "trtrtr",
+      "author": "trtrtr",
+      "featured": true,
+      "date": "Dec 18, 2025",
+      "imageUrl": "/assets/images/1f3bed0ea55ae9854e8a1a6cfb76ebfc.jpg",
+      "title": "rtrrrtr",
+      "tags": [
+        "trtr"
+      ],
+      "content": [
+        "trtrtrtrt"
+      ],
+      "id": "4"
     }
   ]
 }
